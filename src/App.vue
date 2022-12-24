@@ -2,6 +2,7 @@
 import {computed, ref} from "vue";
 // 模块化开发
 import MyProduct2 from "@/components/MyProduct2.vue";
+import MyTable2 from "@/components/MyTable2.vue";
 
 
 const products = ref([
@@ -31,7 +32,10 @@ const showTotal = ref(true);
 
 function toggleTotal() {
   showTotal.value = !showTotal.value;
-}</script>
+}
+
+
+</script>
 
 <template>
 
@@ -39,6 +43,10 @@ function toggleTotal() {
     <!-- 组件化开发 -->
     <!--    <MyHello/>-->
     <MyProduct2 title="京东商品列表"/>
+  </div>
+
+  <div>
+    <MyTable2/>
   </div>
 
   <!--
