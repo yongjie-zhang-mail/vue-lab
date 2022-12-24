@@ -1,43 +1,48 @@
 <script setup>
-import {computed, ref} from "vue";
+import {ref} from "vue";
 // 模块化开发
 import MyProduct2 from "@/components/MyProduct2.vue";
-import MyTable2 from "@/components/MyTable2.vue";
 
 
-const products = ref([
-  {
-    id: "10036574031502",
-    img: "//img12.360buyimg.com/n1/s200x200_jfs/t1/214693/28/22196/130578/634cd246Eb4271b11/7044fc65b92826bc.jpg",
-    name: "抖音推荐用钱赚钱正版10册 有钱人和你想的不一样思考致富财富自由犹太人的赚钱智慧精进戒了吧拖延症等 用钱赚钱正版10册",
-    price: "￥36.80",
-  },
-  {
-    id: "12731283",
-    img: "//img13.360buyimg.com/n1/s200x200_jfs/t1/154726/15/2411/202137/5f890287E4f71832f/256fbdb50b7bc660.jpg",
-    name: "预算大师的理财课（舵手经典136）",
-    price: "￥48.00",
-  },
-  {
-    id: "36913878089",
-    img: "//img14.360buyimg.com/n1/s200x200_jfs/t1/51626/37/17877/113198/6322bdd3E6714d045/3d1e6483e657c4ea.jpg",
-    name: "正版6册巴菲特之道 跟巴菲特学投资 投资大师炼金术 经济学金融股票证券基金投资法则 个人理财书籍套装",
-    price: "￥39.90",
-  },
-]);
+// const products = ref([
+//   {
+//     id: "10036574031502",
+//     img: "//img12.360buyimg.com/n1/s200x200_jfs/t1/214693/28/22196/130578/634cd246Eb4271b11/7044fc65b92826bc.jpg",
+//     name: "抖音推荐用钱赚钱正版10册 有钱人和你想的不一样思考致富财富自由犹太人的赚钱智慧精进戒了吧拖延症等 用钱赚钱正版10册",
+//     price: "￥36.80",
+//   },
+//   {
+//     id: "12731283",
+//     img: "//img13.360buyimg.com/n1/s200x200_jfs/t1/154726/15/2411/202137/5f890287E4f71832f/256fbdb50b7bc660.jpg",
+//     name: "预算大师的理财课（舵手经典136）",
+//     price: "￥48.00",
+//   },
+//   {
+//     id: "36913878089",
+//     img: "//img14.360buyimg.com/n1/s200x200_jfs/t1/51626/37/17877/113198/6322bdd3E6714d045/3d1e6483e657c4ea.jpg",
+//     name: "正版6册巴菲特之道 跟巴菲特学投资 投资大师炼金术 经济学金融股票证券基金投资法则 个人理财书籍套装",
+//     price: "￥39.90",
+//   },
+// ]);
+//
+// const total = computed(() => products.value.length);
+//
+// const showTotal = ref(true);
+//
+// function toggleTotal() {
+//   showTotal.value = !showTotal.value;
+// }
 
-const total = computed(() => products.value.length);
-
-const showTotal = ref(true);
-
-function toggleTotal() {
-  showTotal.value = !showTotal.value;
-}
-
+const tip = ref("请输入查询关键字");
 
 </script>
 
 <template>
+
+  <p style="text-align: center">
+    <input type="text" :placeholder="tip"/>
+    <input type="submit">
+  </p>
 
   <div>
     <!-- 组件化开发 -->
@@ -45,9 +50,9 @@ function toggleTotal() {
     <MyProduct2 title="京东商品列表"/>
   </div>
 
-  <div>
-    <MyTable2/>
-  </div>
+  <!--  <div>-->
+  <!--    <MyTable2/>-->
+  <!--  </div>-->
 
   <!--
   <div>
@@ -70,30 +75,6 @@ function toggleTotal() {
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
