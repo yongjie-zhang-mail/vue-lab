@@ -1,4 +1,26 @@
-<script setup>
+<template>
+  <div>
+    <div v-for="product in products" :key="product.id">
+      <img :src="product.img" alt="jd商品"/>
+      <div>
+        {{ product.name }}
+      </div>
+      <div>
+        {{ product.price }}
+      </div>
+    </div>
+
+    <div v-if="showTotal">总共: {{ total }} 个商品</div>
+
+    <button @click="toggleTotal">{{ showTotal ? "隐藏" : "显示" }}总数</button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "MyProduct1"
+}
+
 import {computed, ref} from "vue";
 
 const products = ref([
@@ -30,54 +52,9 @@ function toggleTotal() {
   showTotal.value = !showTotal.value;
 }
 
+
 </script>
 
-<template>
-
-  <div>
-    <div v-for="product in products" :key="product.id">
-      <img :src="product.img" alt="jd商品"/>
-      <div>
-        {{ product.name }}
-      </div>
-      <div>
-        {{ product.price }}
-      </div>
-    </div>
-
-    <div v-if="showTotal">总共: {{ total }} 个商品</div>
-
-    <button @click="toggleTotal">{{ showTotal ? "隐藏" : "显示" }}总数</button>
-  </div>
-
-
-</template>
-
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>

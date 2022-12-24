@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<!-- view -->
+<div id="app">
+    <p>{{ hello_message }}</p>
+    <p>
+        <input type="text" :placeholder="tip"/>
+        <input type="submit">
+    </p>
+    <p v-if="showPic">
+        <img :src="img" alt="product img"/>
+    </p>
+    <button @click="togglePic">{{ showPic ? "隐藏" : "显示" }}图片</button>
+    <p>
+        {{ name }}
+    </p>
+    <p>
+        {{ price }}
+    </p>
+    <hr/>
+    <div>
+        <h1>{{ count }}</h1>
+        <button @click="addCount">+1</button>
+    </div>
+    <hr/>
+    <div>
+        <p>京东商品列表：</p>
+        <ul>
+            <li v-for="product in products" :key="product.id">
+                <img :src="product.img" alt="jd商品"/>
+                <div>
+                    {{ product.name }}
+                </div>
+                <div>
+                    {{ product.price }}
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+    // model
+    const vm = {
+        data: function () {
+            return {
+                hello_message: "hello vue 3",
+                id: "10036574031502",
+                img: "//img12.360buyimg.com/n1/s200x200_jfs/t1/214693/28/22196/130578/634cd246Eb4271b11/7044fc65b92826bc.jpg",
+                name: "抖音推荐用钱赚钱正版10册 有钱人和你想的不一样思考致富财富自由犹太人的赚钱智慧精进戒了吧拖延症等 用钱赚钱正版10册",
+                price: "￥36.80",
+                tip: "请输入查询关键字",
+                count: 0,
+                showPic: true,
+                products: [
+                    {
+                        id: "10036574031502",
+                        img: "//img12.360buyimg.com/n1/s200x200_jfs/t1/214693/28/22196/130578/634cd246Eb4271b11/7044fc65b92826bc.jpg",
+                        name: "抖音推荐用钱赚钱正版10册 有钱人和你想的不一样思考致富财富自由犹太人的赚钱智慧精进戒了吧拖延症等 用钱赚钱正版10册",
+                        price: "￥36.80",
+                    },
+                    {
+                        id: "12731283",
+                        img: "//img13.360buyimg.com/n1/s200x200_jfs/t1/154726/15/2411/202137/5f890287E4f71832f/256fbdb50b7bc660.jpg",
+                        name: "预算大师的理财课（舵手经典136）",
+                        price: "￥48.00",
+                    },
+                    {
+                        id: "36913878089",
+                        img: "//img14.360buyimg.com/n1/s200x200_jfs/t1/51626/37/17877/113198/6322bdd3E6714d045/3d1e6483e657c4ea.jpg",
+                        name: "正版6册巴菲特之道 跟巴菲特学投资 投资大师炼金术 经济学金融股票证券基金投资法则 个人理财书籍套装",
+                        price: "￥39.90",
+                    },
+                ]
+            }
+        },
+        methods: {
+            addCount() {
+                this.count += 1;
+            },
+            togglePic() {
+                this.showPic = !this.showPic;
+            },
+        }
+    }
+
+    // viewmodel
+    const app = Vue.createApp(vm);
+    app.mount('#app');
+
+</script>
+
+</body>
+</html>
