@@ -1,5 +1,4 @@
 <script setup>
-import {ref} from "vue";
 // 模块化开发
 import MyProduct2 from "@/components/MyProduct2.vue";
 
@@ -33,18 +32,13 @@ import MyProduct2 from "@/components/MyProduct2.vue";
 //   showTotal.value = !showTotal.value;
 // }
 
-const tip = ref("请输入查询关键字");
 
 </script>
 
 <template>
 
-  <p style="text-align: center">
-    <input type="text" :placeholder="tip"/>
-    <input type="submit">
-  </p>
 
-  <div>
+<div>
     <!-- 组件化开发 -->
     <!--    <MyHello/>-->
     <MyProduct2 title="京东商品列表"/>
