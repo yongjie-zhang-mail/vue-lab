@@ -1,7 +1,7 @@
 <script setup>
 import {computed, ref} from "vue";
 // 模块化开发
-import MyHello from "@/components/MyHello.vue";
+import MyProduct2 from "@/components/MyProduct2.vue";
 
 const products = ref([
   {
@@ -36,8 +36,8 @@ function toggleTotal() {
 
   <div>
     <!-- 组件化开发 -->
-    <MyHello/>
-    <MyHello/>
+    <!--    <MyHello/>-->
+    <MyProduct2/>
   </div>
 
   <div>
