@@ -1,20 +1,29 @@
 <template>
-  <div v-if="showProduct">
-    <h1>MyProduct2</h1>
-    <img :src="products[0].img" alt="jd商品"/>
-    <div>
-      {{ products[0].name }}
+  <button @click="toggleProduct">{{ showProducts ? "隐藏" : "显示" }}商品</button>
+  <div v-if="showProducts">
+    <h1>{{ title }}</h1>
+    <div v-for="product in products" :key="product.id">
+      <img :src="product.img" alt="jd商品"/>
+      <div>
+        {{ product.name }}
+      </div>
+      <div>
+        {{ product.price }}
+      </div>
     </div>
-    <div>
-      {{ products[0].price }}
-    </div>
+    <div>总共: {{ total }} 个商品</div>
   </div>
-  <button @click="toggleProduct">{{ showProduct ? "隐藏" : "显示" }}商品</button>
+
 </template>
 
 <script>
+import {computed} from "vue";
+
 export default {
   name: "MyProduct2",
+  props: [
+    "title"
+  ],
   data() {
     return {
       products: [
@@ -37,12 +46,13 @@ export default {
           price: "￥39.90",
         },
       ],
-      showProduct: true,
+      showProducts: true,
+      total: computed(() => this.products.length),
     }
   },
   methods: {
     toggleProduct() {
-      this.showProduct = !this.showProduct;
+      this.showProducts = !this.showProducts;
     }
   },
 }

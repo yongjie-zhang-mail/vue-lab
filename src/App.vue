@@ -3,6 +3,7 @@ import {computed, ref} from "vue";
 // 模块化开发
 import MyProduct2 from "@/components/MyProduct2.vue";
 
+
 const products = ref([
   {
     id: "10036574031502",
@@ -37,9 +38,10 @@ function toggleTotal() {
   <div>
     <!-- 组件化开发 -->
     <!--    <MyHello/>-->
-    <MyProduct2/>
+    <MyProduct2 title="京东商品列表"/>
   </div>
 
+  <!--
   <div>
     <div v-for="product in products" :key="product.id">
       <img :src="product.img" alt="jd商品"/>
@@ -55,7 +57,7 @@ function toggleTotal() {
 
     <button @click="toggleTotal">{{ showTotal ? "隐藏" : "显示" }}总数</button>
   </div>
-
+  -->
 
 </template>
 
