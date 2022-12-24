@@ -1,5 +1,7 @@
 <script setup>
 import {computed, ref} from "vue";
+// 模块化开发
+import MyHello from "@/components/MyHello.vue";
 
 const products = ref([
   {
@@ -28,11 +30,15 @@ const showTotal = ref(true);
 
 function toggleTotal() {
   showTotal.value = !showTotal.value;
-}
-
-</script>
+}</script>
 
 <template>
+
+  <div>
+    <!-- 组件化开发 -->
+    <MyHello/>
+    <MyHello/>
+  </div>
 
   <div>
     <div v-for="product in products" :key="product.id">
