@@ -18,6 +18,7 @@
 
 <script>
 import {computed} from "vue";
+import axios from "axios";
 
 export default {
   name: "MyProduct2",
@@ -55,6 +56,10 @@ export default {
       this.showProducts = !this.showProducts;
     }
   },
+  created() {
+    console.log("组件MyProduct2被创建了");
+    axios
+  }
 }
 </script>
 
