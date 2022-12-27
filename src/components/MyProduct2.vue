@@ -102,7 +102,8 @@ export default {
       // console.log("axiosPost2");
       this.$axios({
         method: "post",
-        url: "/v1/testos/searchPage",
+        // url: "/v1/testos/searchPage",
+        url: "/v1/testos/searchPage3",
         data: this.searchRequest,
       }).then((response) => {
         // console.log(response.data);
